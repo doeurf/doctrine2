@@ -1180,8 +1180,9 @@ class BasicEntityPersister
                     }
                 }
             } else if ($this->_class->generatorType != ClassMetadata::GENERATOR_TYPE_IDENTITY || $this->_class->identifier[0] != $name) {
-                $columns[] = $this->_class->getQuotedColumnName($name, $this->_platform);
-                $this->_columnTypes[$name] = $this->_class->fieldMappings[$name]['type'];
+                $columnName = $this->_class->getQuotedColumnName($name, $this->_platform);
+                $columns[] = $columnName;
+                $this->_columnTypes[$columnName] = $this->_class->fieldMappings[$name]['type'];
             }
         }
 
